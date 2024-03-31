@@ -1,0 +1,15 @@
+youtube_warehouse:
+  outputs:
+    dev:
+      dataset: project_dataset
+      job_execution_timeout_seconds: 300
+      job_retries: 1
+      # keyfile: /opt/airflow/keys/gcp.json
+      keyfile: ../../keys/gcp.json
+      location: asia-southeast2
+      method: service-account
+      priority: interactive
+      project: de-zoomcamp-project-youtube
+      threads: 1
+      type: bigquery
+  target: dev

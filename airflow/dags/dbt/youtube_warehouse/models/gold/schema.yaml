@@ -1,0 +1,108 @@
+version: 2
+
+models:
+  - name: grouping_category_for_country
+    description: |
+      This model aggregates data to show the distribution of video categories by country.
+    columns:
+      - name: country
+        description: The country where the video is trending.
+        tests:
+          - not_null
+      - name: title
+        description: The title of the video category.
+        tests:
+          - not_null
+      - name: total
+        description: The total count of videos for each category in each country.
+        tests:
+          - not_null
+  - name: top_engagement_percountry
+    description: |
+      This model aggregates engagement metrics (views, likes, comments) for videos by country and trending date, 
+      and assigns a rank based on the total engagement.
+    columns:
+      - name: trending_date
+        description: The date when the video was trending.
+        tests:
+          - not_null
+      - name: country
+        description: The country where the video is trending.
+        tests:
+          - not_null
+      - name: total_views
+        description: The total number of views for videos in each country on each trending date.
+        tests:
+          - not_null
+      - name: total_likes
+        description: The total number of likes for videos in each country on each trending date.
+        tests:
+          - not_null
+      - name: total_comments
+        description: The total number of comments for videos in each country on each trending date.
+        tests:
+          - not_null
+      - name: engagement_rank
+        description: The rank of each country's engagement based on total views, likes, and comments.
+        tests:
+          - not_null
+  - name: top_interaction_channel_percountry
+    description: |
+      This model identifies the top 10 trending channels for each country based on total interaction (views + likes + comments).
+    columns:
+      - name: channel_title
+        description: The title of the trending channel.
+        tests:
+          - not_null
+      - name: country
+        description: The country where the channel is trending.
+        tests:
+          - not_null
+      - name: total_views
+        description: The total views of trending videos on the channel.
+        tests:
+          - not_null
+      - name: total_likes
+        description: The total likes of trending videos on the channel.
+        tests:
+          - not_null
+      - name: total_comments
+        description: The total comments on trending videos on the channel.
+        tests:
+          - not_null
+      - name: total_interaction
+        description: The total interaction (views + likes + comments) on the channel.
+        tests:
+          - not_null
+  - name: top_views_video_percountry
+    description: |
+      This model identifies the top 10 trending videos for each country based on total views.
+    columns:
+      - name: title
+        description: The title of the trending video.
+        tests:
+          - not_null
+      - name: channel
+        description: The channel where the video is published.
+        tests:
+          - not_null
+      - name: country
+        description: The country where the video is trending.
+        tests:
+          - not_null
+      - name: total_views
+        description: The total views of the trending video.
+        tests:
+          - not_null
+      - name: total_likes
+        description: The total likes of the trending video.
+        tests:
+          - not_null
+      - name: total_dislikes
+        description: The total dislikes of the trending video.
+        tests:
+          - not_null
+      - name: total_comments
+        description: The total comments on the trending video.
+        tests:
+          - not_null

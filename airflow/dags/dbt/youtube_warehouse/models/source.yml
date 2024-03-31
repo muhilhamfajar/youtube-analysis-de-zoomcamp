@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: youtube_warehouse
+    database: de-zoomcamp-project-youtube
+    schema: project_dataset  
+    tables:
+      - name: raw_category
+      - name: raw_videos

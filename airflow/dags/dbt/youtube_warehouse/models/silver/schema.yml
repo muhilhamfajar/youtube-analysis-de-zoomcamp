@@ -1,0 +1,82 @@
+
+version: 2
+
+models:
+  - name: dim_category
+    description: "Dimension for category"
+    columns:
+      - name: category_id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+      - name: title
+        description: "Category title"
+        tests:
+          - unique
+          - not_null
+  - name: fact_videos
+    description: "Fact table for YouTube videos"
+    columns:
+      - name: video_id
+        description: "The primary key for this table"
+        tests:
+          - not_null
+      - name: trending_date
+        description: "The date when the video was trending"
+        tests:
+          - not_null
+      - name: title
+        description: "Video title"
+        tests:
+          - not_null
+      - name: channel_title
+        description: "Channel title"
+        tests:
+          - not_null
+      - name: category_id
+        description: "Category ID"
+        tests:
+          - relationships:
+              to: ref('dim_category')
+              field: category_id
+      - name: publish_time
+        description: "Publish time of the video"
+        tests:
+          - not_null
+      - name: views
+        description: "Number of views"
+        tests:
+          - not_null
+      - name: likes
+        description: "Number of likes"
+        tests:
+          - not_null
+      - name: dislikes
+        description: "Number of dislikes"
+        tests:
+          - not_null
+      - name: comment_count
+        description: "Number of comments"
+        tests:
+          - not_null
+      - name: thumbnail_link
+        description: "URL of the video thumbnail"
+        tests:
+          - not_null
+      - name: comments_disabled
+        description: "Flag indicating if comments are disabled"
+        tests:
+          - not_null
+      - name: ratings_disabled
+        description: "Flag indicating if ratings are disabled"
+        tests:
+          - not_null
+      - name: video_error_or_removed
+        description: "Flag indicating if the video is removed or has an error"
+        tests:
+          - not_null
+      - name: country
+        description: "Country code of the video"
+        tests:
+          - not_null
