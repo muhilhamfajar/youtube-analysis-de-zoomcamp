@@ -35,6 +35,8 @@ The following tools and technologies are used:
 
 ![Pipeline](docs/images/airflow-pipeline.png "Pipeline")
 
+![DBT](docs/images/dbt-lineage.png "DBT lineage")
+
 **Before partitioning and clustering:**
 
 ![before](docs/images/raw-query.png "raw query without partitioning and clustering DW")
